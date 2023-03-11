@@ -1,0 +1,12 @@
+{
+  "name": "com.meowlab.utils",
+  "displayName": "MeowLab.Utils",
+  "author": { "name": "Alexey Shnigir", "url": "" },
+  "version": "1.0.0",
+  "unity": "2018.4",
+  "description": "Unity Utils",
+  "keywords": [ "utils" ],
+  "license": "MIT",
+  "category": "TOOL",
+  "dependencies": {}
+}
