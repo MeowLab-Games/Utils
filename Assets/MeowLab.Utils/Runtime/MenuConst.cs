@@ -8,5 +8,6 @@ namespace MeowLab.Utils
         public const string FEATURE_MENU_NAME = "MeowLabECS/";
         public const int SDK_FEATURE_ORDER = 500;
         public const int PROJECT_FEATURE_ORDER = 10000;
+        public const int SDK_CONFIGURATOR_CONFIG = -10000;
     }
 }
