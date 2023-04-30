@@ -60,15 +60,15 @@ namespace MeowLab.Utils
             return string.Join("_", filename.Split(Path.GetInvalidFileNameChars()));
         }
 
-
-#if UNITY_EDITOR
-        public void Setup() {
-            PlayerSettings.bundleVersion = GetVersion();
-            PlayerSettings.Android.bundleVersionCode = GetBundleVersionCode();
-            PlayerSettings.iOS.buildNumber = GetBundleVersionCode().ToString();
-            PlayerSettings.macOS.buildNumber = GetBundleVersionCode().ToString();
-        }
-#endif
+//
+// #if UNITY_EDITOR
+//         public void Setup() {
+//             PlayerSettings.bundleVersion = GetVersion();
+//             PlayerSettings.Android.bundleVersionCode = GetBundleVersionCode();
+//             PlayerSettings.iOS.buildNumber = GetBundleVersionCode().ToString();
+//             PlayerSettings.macOS.buildNumber = GetBundleVersionCode().ToString();
+//         }
+// #endif
     }
 
 
@@ -109,7 +109,7 @@ namespace MeowLab.Utils
 
 
         private static void SaveChanges() {
-            BuildVersion.I.Setup();
+            // BuildVersion.I.Setup();
             EditorUtility.SetDirty(BuildVersion.I);
             AssetDatabase.SaveAssetIfDirty(BuildVersion.I);
         }
@@ -126,25 +126,25 @@ namespace MeowLab.Utils
     }
 
 
-
-    [CustomEditor(typeof(BuildVersion), true)]
-    public class BuildVersionEditor : UnityEditor.Editor
-    {
-        public override VisualElement CreateInspectorGUI() {
-            var root = new VisualElement();
-            InspectorElement.FillDefaultInspector(root, serializedObject, this);
-            root.Add(SetupButton());
-            return root;
-        }
-
-
-        private VisualElement SetupButton() {
-            var button = new Button();
-            button.text = "SETUP";
-            button.clicked += () => (target as BuildVersion)?.Setup();
-            return button;
-        }
-    }
+    //
+    // [CustomEditor(typeof(BuildVersion), true)]
+    // public class BuildVersionEditor : UnityEditor.Editor
+    // {
+    //     public override VisualElement CreateInspectorGUI() {
+    //         var root = new VisualElement();
+    //         InspectorElement.FillDefaultInspector(root, serializedObject, this);
+    //         root.Add(SetupButton());
+    //         return root;
+    //     }
+    //
+    //
+    //     private VisualElement SetupButton() {
+    //         var button = new Button();
+    //         button.text = "SETUP";
+    //         button.clicked += () => (target as BuildVersion)?.Setup();
+    //         return button;
+    //     }
+    // }
     
     public static class CleanupPostProcessorBuild
     {
